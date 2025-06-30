@@ -2,11 +2,140 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Site Barbosa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colégio Barbosa - Educação de Qualidade</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Colégio Estadual Barbosa Ferraz</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Início</a></li>
+                    <li><a href="EnsM.html">Ensino Médio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Cursos Técnicos</a>
+                        <div class="dropdown-content">
+                            <a href="DS.html">Desenvolvimento de Sistemas</a>
+                            <a href="FD.html">Formação de Docentes</a>
+                            <a href="TE.html">Técnico em Estética</a>
+                            <a href="TEn.html">Técnico em Enfermagem</a>
+                            <a href="TA.html">Técnico em Administração</a>
+                        </div>
+                    </li>
+                    <li><a href="Proj.html">Projetos</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bem-vindos ao Colégio Barbosa</h1>
+                <p>Formando cidadãos e profissionais para o futuro</p>
+                <a href="#atividades" class="cta-button">Conheça Nossas Atividades</a>
+            </div>
+        </section>
+
+        <section id="atividades" class="activities">
+            <div class="container">
+                <h2>Atividades Gerais</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>📚 Ensino de Qualidade</h3>
+                        <p>Metodologia moderna e professores qualificados para garantir o melhor aprendizado.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>🏆 Competições Acadêmicas</h3>
+                        <p>Participação em olimpíadas de matemática, física, química e outras disciplinas.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>🎭 Atividades Culturais</h3>
+                        <p>Teatro, música, dança e artes visuais para desenvolvimento integral dos alunos.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>⚽ Esportes</h3>
+                        <p>Quadras poliesportivas, times de futebol, vôlei, basquete e outras modalidades.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>🔬 Laboratórios</h3>
+                        <p>Laboratórios de ciências, informática e práticas técnicas totalmente equipados.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>📖 Biblioteca</h3>
+                        <p>Acervo completo com livros, revistas e espaço de estudos para os alunos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="courses-preview">
+            <div class="container">
+                <h2>Nossos Cursos</h2>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h3>Ensino Médio</h3>
+                        <p>Formação completa para o ENEM e vestibulares</p>
+                        <a href="EnsM.html">Saiba Mais</a>
+                    </div>
+                    <div class="course-card">
+                        <h3>Desenvolvimento de Sistemas</h3>
+                        <p>Forme-se programador em 3 anos</p>
+                        <a href="DS.html">Saiba Mais</a>
+                    </div>
+                    <div class="course-card">
+                        <h3>Formação de Docentes</h3>
+                        <p>Prepare-se para ser professor</p>
+                        <a href="FD.html">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Colégio Barbosa</h3>
+                    <p>Educação de qualidade há mais de 50 anos</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>📞 (43) 99611-3582</p>
+                    <p>📧 ivpbarbosa@gmail.com</p>
+                    <p>📍 R. Rio Grande do Sul, 1200 - Ivaiporã, PR, 86870-000</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 7h às 22h</p>
+                    <p>Sábado: 8h às 12h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Barbosa Ferraz. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
