@@ -3,138 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colégio Barbosa - Educação de Qualidade</title>
+    <title>Colégio Estadual Barbosa Ferraz - Ivaiporã/PR</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Colégio Estadual Barbosa Ferraz</h1>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"><img src="Logo_60_sem_fundo.png" alt="logo"></i>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Início</a></li>
-                    <li><a href="EnsM.html">Ensino Médio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Cursos Técnicos</a>
-                        <div class="dropdown-content">
-                            <a href="DS.html">Desenvolvimento de Sistemas</a>
-                            <a href="FD.html">Formação de Docentes</a>
-                            <a href="TE.html">Técnico em Estética</a>
-                            <a href="TEn.html">Técnico em Enfermagem</a>
-                            <a href="TA.html">Técnico em Administração</a>
-                        </div>
-                    </li>
-                    <li><a href="Proj.html">Projetos</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <span>CE Barbosa Ferraz</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link active">Início</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        Cursos
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="EnsM.html" class="dropdown-item">
+                            <i class="fas fa-book"></i>
+                            <span>Ensino Médio</span>
+                        </a>
+                        <a href="DS.html" class="dropdown-item">
+                            <i class="fas fa-code"></i>
+                            <span>Desenvolvimento de Sistemas</span>
+                        </a>
+                        <a href="FD.html" class="dropdown-item">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Formação de Docentes</span>
+                        </a>
+                        <a href="TE.html" class="dropdown-item">
+                            <i class="fas fa-spa"></i>
+                            <span>Técnico em Estética</span>
+                        </a>
+                        <a href="TEn.html" class="dropdown-item">
+                            <i class="fas fa-user-nurse"></i>
+                            <span>Técnico em Enfermagem</span>
+                        </a>
+                        <a href="TA.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Técnico em Administração</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Proj.html" class="nav-link">Projetos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contato" class="nav-link">Contato</a>
+                </li>
+            </ul>
+            
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="hero" id="inicio">
+  <div class="hero-slider">
+    <div class="hero-slide active" style="background-image:url('img/entada.png')"></div>
+    <div class="hero-slide" style="background-image: url('img/guadra.png')"></div>
+    <div class="hero-slide" style="background-image: url('img/entada_por_zima.png')"></div>
+    <div class="hero-slide" style="background-image: url('img/praca.png')"></div>
+    <div class="hero-slide" style="background-image: url('img/praca2.png')"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge"> 
+      <i class="fas fa-award"></i>
+      <span>60+ Anos de Excelência</span>
+    </div>
+    <h1 class="hero-title">Colégio Estadual Barbosa Ferraz</h1>
+    <p class="hero-subtitle">Formando líderes e transformando vidas através da educação de qualidade.</p>
+    <div class="hero-buttons">
+      <a href="#cursos" class="btn btn-primary">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Ver cursos</span>
+      </a>
+      <a href="#sobre" class="btn btn-secondary">
+        <i class="fas fa-info-circle"></i>
+        <span>Conheça a escola</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="slider-controls">
+    <div class="slider-dot active" data-slide="0"></div>
+    <div class="slider-dot" data-slide="1"></div>
+    <div class="slider-dot" data-slide="2"></div>
+    <div class="slider-dot" data-slide="3"></div>
+    <div class="slider-dot" data-slide="4"></div>
+  </div>
+
+  <div class="slider-arrows">
+    <button class="slider-arrow prev" id="prev-slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="slider-arrow next" id="next-slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+    <!-- Courses Section -->
+    <section class="section" id="cursos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge animate-on-scroll">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Educação de Qualidade</span>
+                </div>
+                <h2 class="section-title animate-on-scroll">Nossos Cursos</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Oferecemos formação completa com cursos reconhecidos, preparando nossos alunos para os desafios do futuro.
+                </p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card animate-on-scroll loading">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="card-title">Ensino Médio</h3>
+                    <p class="card-description">
+                        Formação sólida e completa preparando nossos estudantes para universidades e mercado de trabalho.
+                    </p>
+                    <a href="EnsM.html" class="card-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll loading">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="card-title">Desenvolvimento de Sistemas</h3>
+                    <p class="card-description">
+                        Curso técnico integrado ao ensino médio direcionado ao mercado de tecnologia.
+                    </p>
+                    <a href="DS.html" class="card-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll loading">
+                    <div class="card-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="card-title">Formação de Docentes</h3>
+                    <p class="card-description">
+                        Curso Normal preparando futuros educadores para as próximas gerações.
+                    </p>
+                    <a href="FD.html" class="card-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll loading">
+                    <div class="card-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="card-title">Técnico em Estética</h3>
+                    <p class="card-description">
+                        Beleza e bem-estar com laboratórios modernos e equipamentos para formação completa
+                    </p>
+                    <a href="TE.html" class="card-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll loading">
+                    <div class="card-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h3 class="card-title">Técnico em Enfermagem</h3>
+                    <p class="card-description">
+                        Formação em saúde, visando a formação de profissionais na área.
+                    </p>
+                    <a href="TEn.html" class="card-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll loading">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="card-title">Técnico em Administração</h3>
+                    <p class="card-description">
+                        Gestão empresarial com foco no empreendedorismo e desenvolvimento econômico regional.
+                    </p>
+                    <a href="TA.html" class="card-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Bem-vindos ao Colégio Barbosa</h1>
-                <p>Formando cidadãos e profissionais para o futuro</p>
-                <a href="#atividades" class="cta-button">Conheça Nossas Atividades</a>
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge animate-on-scroll">
+                    <i class="fas fa-trophy"></i>
+                    <span>Resultados Comprovados</span>
+                </div>
+                <h2 class="section-title animate-on-scroll">60+ Anos de Excelência</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Números que comprovam nossa tradição e qualidade em educação pública no Vale do Ivaí
+                </p>
             </div>
-        </section>
-
-        <section id="atividades" class="activities">
-            <div class="container">
-                <h2>Atividades Gerais</h2>
-                <div class="activities-grid">
-                    <div class="activity-card">
-                        <h3>📚 Ensino de Qualidade</h3>
-                        <p>Metodologia moderna e professores qualificados para garantir o melhor aprendizado.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>🏆 Competições Acadêmicas</h3>
-                        <p>Participação em olimpíadas de matemática, física, química e outras disciplinas.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>🎭 Atividades Culturais</h3>
-                        <p>Teatro, música, dança e artes visuais para desenvolvimento integral dos alunos.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>⚽ Esportes</h3>
-                        <p>Quadras poliesportivas, times de futebol, vôlei, basquete e outras modalidades.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>🔬 Laboratórios</h3>
-                        <p>Laboratórios de ciências, informática e práticas técnicas totalmente equipados.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>📖 Biblioteca</h3>
-                        <p>Acervo completo com livros, revistas e espaço de estudos para os alunos.</p>
-                    </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Alunos Atuais</span>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Professores Qualificados</span>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Cursos Oferecidos</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="courses-preview">
-            <div class="container">
-                <h2>Nossos Cursos</h2>
-                <div class="courses-grid">
-                    <div class="course-card">
-                        <h3>Ensino Médio</h3>
-                        <p>Formação completa para o ENEM e vestibulares</p>
-                        <a href="EnsM.html">Saiba Mais</a>
-                    </div>
-                    <div class="course-card">
-                        <h3>Desenvolvimento de Sistemas</h3>
-                        <p>Forme-se programador em 3 anos</p>
-                        <a href="DS.html">Saiba Mais</a>
-                    </div>
-                    <div class="course-card">
-                        <h3>Formação de Docentes</h3>
-                        <p>Prepare-se para ser professor</p>
-                        <a href="FD.html">Saiba Mais</a>
-                    </div>
+    <!-- About Section -->
+    <section class="section about-section" id="sobre">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge animate-on-scroll">
+                    <i class="fas fa-school"></i>
+                    <span>Nossa Instituição</span>
+                </div>
+                <h2 class="section-title animate-on-scroll">Tradição e Inovação</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Conheça a história e os valores que nos guiam há 60+ anos na formação de cidadãos
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h3>Nossa História</h3>
+                    <p>O Colégio Barbosa Ferraz teve em sua existência, várias fases ricas em detalhes, que coincidentemente acompanharam o desenvolvimento do município de Ivaiporã, desde sua Emancipação Política No início dos anos 60 funcionava neste local o Grupo Escolar Barbosa Ferraz, com ensino de 1ª. a 4ª. séries e teve como sua primeira diretora a Professora Edna Ribeiro e sucessivamente as Professoras Edith Sobieray, Vera Lima Natel, Neide Vastilho Romero Xavier, Neuza Dionizio da Rocha e Eva Turim.</p>
+                    
+                    <h3>Missão e Valores</h3>
+                    <p>Nossa missão é promover educação pública de qualidade, formando cidadãos preparados para o mercado de trabalho e ensino superior, contribuindo para o desenvolvimento da região.</p>
+                </div>
+                
+                <div class="about-image animate-on-scroll">
+                    <i class="fas fa-school"><img src="img/angita.png" alt="colégio em reformas"></i>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Colégio Barbosa</h3>
-                    <p>Educação de qualidade há mais de 50 anos</p>
+                    <h3>Colégio Estadual Barbosa Ferraz</h3>
+                    <p>60+ anos de tradição em educação pública de qualidade no coração do Vale do Ivaí. Formando cidadãos conscientes e preparados para os desafios do futuro.</p>
                 </div>
+                
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>📞 (43) 99611-3582</p>
-                    <p>📧 ivpbarbosa@gmail.com</p>
-                    <p>📍 R. Rio Grande do Sul, 1200 - Ivaiporã, PR, 86870-000</p>
+                    <p><i class="fas fa-phone"></i>(43) 99611-3582</p>
+                    <p><i class="fas fa-envelope"></i> ivpbarbosa@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Rio Grande do Sul, 1200</p>
+                    <p>Centro - Ivaiporã/PR - CEP: 86870-000</p>
+                    <a href="https://www.instagram.com/colegiobarbosaferrazivp/">
+                        <img src="img/Instagram_logo_2022.png" width="10%" alt="Nosso Instagram" >
+                    </a>
+                    <a href="https://www.google.com/maps/place/Col%C3%A9gio+Estadual+Barbosa+Ferraz/@-24.2480054,-51.6754682,19z/data=!4m6!3m5!1s0x94ec15f24bc28389:0xe17147f9468d9720!8m2!3d-24.2481566!4d-51.6752437!16s%2Fg%2F11cr_0_pq5?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="img/map.png" width="10%" alt="Localização do Colégio Barbosa" >
+                    </a>
                 </div>
+                
                 <div class="footer-section">
-                    <h3>Horário de Funcionamento</h3>
-                    <p>Segunda a Sexta: 7h às 22h</p>
-                    <p>Sábado: 8h às 12h</p>
+                    <h3>Horários de Funcionamento</h3>
+                    <p><strong>Manhã:</strong> 6h50 às 11h50</p>
+                    <p><strong>Tarde:</strong> 13h às 17h00</p>
+                    <p><strong>Noite:</strong> 19h às 23h00</p>
+                    <p><strong>Secretaria:</strong> 8h às 17h (seg. a sex.)</p>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 Colégio Barbosa Ferraz. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Colégio Estadual Barbosa Ferraz - Governo do Estado do Paraná - SEED-PR</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu mobile
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Image slider functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
+        function stopSlideshow() {
+            clearInterval(slideInterval);
+        }
+
+        // Auto-advance slides
+        startSlideshow();
+
+        // Pause on hover
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', stopSlideshow);
+        heroSection.addEventListener('mouseleave', startSlideshow);
+
+        // Manual controls
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopSlideshow();
+            startSlideshow();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopSlideshow();
+            startSlideshow();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                stopSlideshow();
+                startSlideshow();
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation link based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Preload images for better performance
+        const imageUrls = [
+            '/placeholder.svg?height=1080&width=1920&text=Fachada+Moderna+do+Colégio',
+            '/placeholder.svg?height=1080&width=1920&text=Laboratório+de+Tecnologia',
+            '/placeholder.svg?height=1080&width=1920&text=Biblioteca+Contemporânea',
+            '/placeholder.svg?height=1080&width=1920&text=Quadra+Poliesportiva',
+            '/placeholder.svg?height=1080&width=1920&text=Laboratório+de+Ciências'
+        ];
+
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
         });
     </script>
 </body>
