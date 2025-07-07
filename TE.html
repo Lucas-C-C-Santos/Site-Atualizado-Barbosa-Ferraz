@@ -3,234 +3,516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Técnico em Estética - Colégio Barbosa</title>
+    <title>Técnico em Estética - Colégio Estadual Barbosa Ferraz</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estética - Design Elegante e Sofisticado */
+        :root {
+            --beauty-primary: #1e3a8a;
+            --beauty-secondary: #3b82f6;
+            --beauty-accent: #60a5fa;
+            --beauty-light: #dbeafe;
+            --beauty-rose: #f472b6;
+            --beauty-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            --beauty-rose-gradient: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+        }
+
+        body.estetica-page {
+            background: radial-gradient(circle at 30% 70%, rgba(30, 58, 138, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(244, 114, 182, 0.1) 0%, transparent 50%),
+                        #fafbff;
+        }
+
+        .beauty-header {
+            background: var(--beauty-gradient);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beauty-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='60' cy='60' r='30'/%3E%3Ccircle cx='60' cy='60' r='15'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .beauty-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .beauty-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .specialization-section {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.1);
+            position: relative;
+        }
+
+        .specialization-section::before {
+            content: "💆‍♀️";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: var(--beauty-rose-gradient);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.3);
+        }
+
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .specialization-card {
+            background: var(--beauty-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specialization-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--beauty-gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .specialization-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .specialization-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--beauty-primary);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+        }
+
+        .specialization-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .specialization-icon {
+            font-size: 2.5rem;
+            color: var(--beauty-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .specialization-card h4 {
+            color: var(--beauty-primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modules-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .module-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1);
+            border-left: 5px solid var(--beauty-primary);
+            transition: all 0.3s ease;
+        }
+
+        .module-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.15);
+        }
+
+        .module-item h4 {
+            color: var(--beauty-primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .module-item h4::before {
+            content: "✨";
+            font-size: 1.2rem;
+        }
+
+        .module-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-item li {
+            padding: 0.75rem 0;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--beauty-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .module-item li::before {
+            content: "💎";
+            font-size: 0.8rem;
+        }
+
+        .module-item li:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-section {
+            background: var(--beauty-gradient);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            color: white;
+        }
+
+        .equipment-section h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .equipment-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .equipment-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .equipment-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .equipment-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .beauty-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .specialization-section,
+            .equipment-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Colégio Barbosa</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="EnsM.html">Ensino Médio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Cursos Técnicos</a>
-                        <div class="dropdown-content">
-                            <a href="DS.html">Desenvolvimento de Sistemas</a>
-                            <a href="FD.html">Formação de Docentes</a>
-                            <a href="TE.html" class="active">Técnico em Estética</a>
-                            <a href="TEn.html">Técnico em Enfermagem</a>
-                            <a href="TA.html">Técnico em Administração</a>
-                        </div>
-                    </li>
-                    <li><a href="Proj.html">Projetos</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+<body class="estetica-page">
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"><img src="Logo_60_sem_fundo.png" alt="logo"></i>
             </div>
-        </nav>
+            <span>CE Barbosa Ferraz</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+                <a href="index.html#inicio" class="nav-link">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                    Cursos
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="EnsM.html" class="dropdown-item">
+                        <i class="fas fa-book"></i>
+                        <span>Ensino Médio</span>
+                    </a>
+                    <a href="DS.html" class="dropdown-item">
+                        <i class="fas fa-code"></i>
+                        <span>Desenvolvimento de Sistemas</span>
+                    </a>
+                    <a href="FD.html" class="dropdown-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Formação de Docentes</span>
+                    </a>
+                    <a href="TE.html" class="dropdown-item">
+                        <i class="fas fa-spa"></i>
+                        <span>Técnico em Estética</span>
+                    </a>
+                    <a href="TEn.html" class="dropdown-item">
+                        <i class="fas fa-user-nurse"></i>
+                        <span>Técnico em Enfermagem</span>
+                    </a>
+                    <a href="TA.html" class="dropdown-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Técnico em Administração</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="Proj.html" class="nav-link">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#contato" class="nav-link">Contato</a>
+            </li>
+        </ul>
+
+        <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+    <header class="page-header beauty-header">
+        <div class="container">
+            <h1>Técnico em Estética</h1>
+            <p>Transformando vidas através da beleza e bem-estar com tecnologia avançada</p>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header beauty-header">
-            <div class="container">
-                <h1>✨ Técnico em Estética</h1>
-                <p>Transforme sua paixão por beleza em profissão</p>
-            </div>
-        </section>
+    <section class="course-details">
+        <div class="container">
+            <div class="course-info">
+                <div class="info-card animate-on-scroll">
+                    <h2>Sobre o Curso</h2>
+                    <p>O curso Técnico em Estética forma profissionais capacitados para atuar no mercado de beleza e bem-estar, oferecendo conhecimentos teóricos e práticos em procedimentos estéticos faciais e corporais com as mais modernas tecnologias.</p>
+                </div>
 
-        <section class="course-details">
-            <div class="container">
-                <div class="course-info">
-                    <div class="info-card">
-                        <h2>💄 Sobre o Curso</h2>
-                        <p>O curso Técnico em Estética forma profissionais capacitados para atuar na área de beleza e bem-estar, com conhecimentos em estética facial, corporal e cosmetologia. Nossos alunos aprendem as mais modernas técnicas do mercado.</p>
-                        
-                        <h3>Áreas de Especialização:</h3>
-                        <ul>
-                            <li>✅ Estética Facial</li>
-                            <li>✅ Estética Corporal</li>
-                            <li>✅ Cosmetologia</li>
-                            <li>✅ Massoterapia</li>
-                            <li>✅ Depilação</li>
-                            <li>✅ Micropigmentação</li>
-                            <li>✅ Drenagem Linfática</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>📚 Grade Curricular</h2>
-                        <div class="curriculum-modules">
-                            <div class="module">
-                                <h4>🧬 Módulo Básico</h4>
-                                <ul>
-                                    <li>Anatomia e Fisiologia</li>
-                                    <li>Dermatologia Aplicada</li>
-                                    <li>Cosmetologia</li>
-                                    <li>Biossegurança</li>
-                                    <li>Ética Profissional</li>
-                                </ul>
-                            </div>
-                            <div class="module">
-                                <h4>👤 Estética Facial</h4>
-                                <ul>
-                                    <li>Limpeza de Pele</li>
-                                    <li>Peeling Químico</li>
-                                    <li>Microagulhamento</li>
-                                    <li>Radiofrequência</li>
-                                    <li>Tratamento de Acne</li>
-                                </ul>
-                            </div>
-                            <div class="module">
-                                <h4>🏃‍♀️ Estética Corporal</h4>
-                                <ul>
-                                    <li>Massagem Modeladora</li>
-                                    <li>Drenagem Linfática</li>
-                                    <li>Carboxiterapia</li>
-                                    <li>Criolipólise</li>
-                                    <li>Tratamento de Celulite</li>
-                                </ul>
-                            </div>
-                            <div class="module">
-                                <h4>💼 Gestão e Empreendedorismo</h4>
-                                <ul>
-                                    <li>Administração de Clínicas</li>
-                                    <li>Marketing Digital</li>
-                                    <li>Atendimento ao Cliente</li>
-                                    <li>Legislação Sanitária</li>
-                                    <li>Plano de Negócios</li>
-                                </ul>
-                            </div>
+                <div class="specialization-section animate-on-scroll">
+                    <h3 style="text-align: center; color: var(--beauty-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem;">Áreas de Especialização</h3>
+                    <div class="specialization-grid">
+                        <div class="specialization-card">
+                            <div class="specialization-icon">💆‍♀️</div>
+                            <h4>Estética Facial</h4>
+                            <p>Tratamentos avançados para rejuvenescimento e cuidados faciais</p>
+                        </div>
+                        <div class="specialization-card">
+                            <div class="specialization-icon">🏃‍♀️</div>
+                            <h4>Estética Corporal</h4>
+                            <p>Procedimentos para modelagem e harmonização corporal</p>
+                        </div>
+                        <div class="specialization-card">
+                            <div class="specialization-icon">💅</div>
+                            <h4>Podologia</h4>
+                            <p>Cuidados especializados para saúde e beleza dos pés</p>
+                        </div>
+                        <div class="specialization-card">
+                            <div class="specialization-icon">🧴</div>
+                            <h4>Cosmetologia</h4>
+                            <p>Estudo e aplicação de cosméticos e produtos de beleza</p>
+                        </div>
+                        <div class="specialization-card">
+                            <div class="specialization-icon">⚡</div>
+                            <h4>Eletroterapia</h4>
+                            <p>Tratamentos com equipamentos de alta tecnologia</p>
+                        </div>
+                        <div class="specialization-card">
+                            <div class="specialization-icon">🌿</div>
+                            <h4>Terapias Naturais</h4>
+                            <p>Técnicas holísticas e tratamentos naturais</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="info-card">
-                        <h2>🏥 Laboratórios e Equipamentos</h2>
-                        <div class="labs-grid">
-                            <div class="lab">
-                                <h4>🛏️ Clínica Escola</h4>
-                                <p>Ambiente real de atendimento com supervisão profissional</p>
-                            </div>
-                            <div class="lab">
-                                <h4>⚡ Equipamentos Modernos</h4>
-                                <p>Radiofrequência, ultrassom, microagulhamento e mais</p>
-                            </div>
-                            <div class="lab">
-                                <h4>🧴 Laboratório de Cosméticos</h4>
-                                <p>Espaço para manipulação e teste de produtos</p>
-                            </div>
-                            <div class="lab">
-                                <h4>👥 Atendimento Real</h4>
-                                <p>Prática com clientes reais durante o curso</p>
-                            </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Módulos do Curso</h3>
+                    <div class="modules-list">
+                        <div class="module-item">
+                            <h4>Fundamentos</h4>
+                            <ul>
+                                <li>Anatomia e Fisiologia</li>
+                                <li>Dermatologia Aplicada</li>
+                                <li>Biossegurança</li>
+                                <li>Ética Profissional</li>
+                            </ul>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>💼 Mercado de Trabalho</h2>
-                        <div class="market-opportunities">
-                            <div class="opportunity">
-                                <h4>🏢 Clínicas de Estética</h4>
-                                <p>Trabalhe em clínicas especializadas em tratamentos estéticos</p>
-                            </div>
-                            <div class="opportunity">
-                                <h4>🏨 Spas e Resorts</h4>
-                                <p>Atue em spas, hotéis e resorts oferecendo tratamentos</p>
-                            </div>
-                            <div class="opportunity">
-                                <h4>🏠 Atendimento Domiciliar</h4>
-                                <p>Ofereça serviços personalizados na casa dos clientes</p>
-                            </div>
-                            <div class="opportunity">
-                                <h4>👩‍💼 Empreendedorismo</h4>
-                                <p>Abra sua própria clínica ou estúdio de estética</p>
-                            </div>
+                        <div class="module-item">
+                            <h4>Estética Facial</h4>
+                            <ul>
+                                <li>Limpeza de Pele</li>
+                                <li>Tratamentos Anti-idade</li>
+                                <li>Peelings Químicos</li>
+                                <li>Microagulhamento</li>
+                            </ul>
                         </div>
-                        
-                        <div class="salary-info">
-                            <h4>💰 Faixa Salarial:</h4>
-                            <p><strong>Iniciante:</strong> R$ 1.800 - R$ 2.500</p>
-                            <p><strong>Experiente:</strong> R$ 2.500 - R$ 4.500</p>
-                            <p><strong>Autônomo:</strong> R$ 3.000 - R$ 8.000+</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>🎯 Certificações Incluídas</h2>
-                        <div class="certifications">
-                            <div class="cert">
-                                <h4>📜 Técnico em Estética</h4>
-                                <p>Certificação oficial reconhecida pelo MEC</p>
-                            </div>
-                            <div class="cert">
-                                <h4>💉 Procedimentos Invasivos</h4>
-                                <p>Habilitação para procedimentos com agulhas</p>
-                            </div>
-                            <div class="cert">
-                                <h4>🤲 Massoterapia</h4>
-                                <p>Certificação em técnicas de massagem</p>
-                            </div>
-                            <div class="cert">
-                                <h4>🏥 Primeiros Socorros</h4>
-                                <p>Capacitação em atendimento de emergência</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>⏰ Informações do Curso</h2>
-                        <div class="general-info">
-                            <p><strong>Duração:</strong> 2 anos (4 semestres)</p>
-                            <p><strong>Período:</strong> Tarde (13h às 17h20) ou Noite (19h às 22h40)</p>
-                            <p><strong>Modalidade:</strong> Presencial</p>
-                            <p><strong>Vagas:</strong> 25 por turma</p>
-                            <p><strong>Pré-requisito:</strong> Ensino Médio completo</p>
-                            <p><strong>Estágio:</strong> 300 horas obrigatórias</p>
+                        <div class="module-item">
+                            <h4>Estética Corporal</h4>
+                            <ul>
+                                <li>Drenagem Linfática</li>
+                                <li>Tratamentos Redutores</li>
+                                <li>Radiofrequência</li>
+                                <li>Criolipólise</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
+            <div class="equipment-section animate-on-scroll">
+                <h3>Equipamentos e Laboratórios</h3>
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-icon">⚡</div>
+                        <h4>Eletroterapia</h4>
+                        <p>Equipamentos modernos para tratamentos com correntes elétricas</p>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon">🌊</div>
+                        <h4>Hidroterapia</h4>
+                        <p>Sala equipada para tratamentos com água e vapor</p>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon">💎</div>
+                        <h4>Microdermoabrasão</h4>
+                        <p>Tecnologia avançada para renovação celular</p>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon">🔬</div>
+                        <h4>Laboratório</h4>
+                        <p>Espaço para análise de pele e desenvolvimento de produtos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Colégio Barbosa</h3>
-                    <p>Educação de qualidade há mais de 50 anos</p>
+                    <h3>Colégio Estadual Barbosa Ferraz</h3>
+                    <p>60+ anos de tradição em educação pública de qualidade no coração do Vale do Ivaí.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <h3>Contato</h3>
-                    <p>📞 (43) 99611-3582</p>
-                    <p>📧 ivpbarbosa@gmail.com</p>
-                    <p>📍 R. Rio Grande do Sul, 1200 - Ivaiporã, PR, 86870-000</p>
+<p><i class="fas fa-phone"></i>(43) 99611-3582</p>
+                    <p><i class="fas fa-envelope"></i> ivpbarbosa@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Rio Grande do Sul, 1200</p>
+                    <p>Centro - Ivaiporã/PR - CEP: 86870-000</p>
+                    <a href="https://www.instagram.com/colegiobarbosaferrazivp/">
+                        <img src="img/Instagram_logo_2022.png" width="10%" alt="Nosso Instagram" >
+                    </a>
+                    <a href="https://www.google.com/maps/place/Col%C3%A9gio+Estadual+Barbosa+Ferraz/@-24.2480054,-51.6754682,19z/data=!4m6!3m5!1s0x94ec15f24bc28389:0xe17147f9468d9720!8m2!3d-24.2481566!4d-51.6752437!16s%2Fg%2F11cr_0_pq5?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="img/map.png" width="10%" alt="Localização do Colégio Barbosa" >
+                    </a>
                 </div>
                 <div class="footer-section">
-                    <h3>Horário de Funcionamento</h3>
-                    <p>Segunda a Sexta: 7h às 22h</p>
-                    <p>Sábado: 8h às 12h</p>
+                    <h3>Horários</h3>
+                    <p><strong>Manhã:</strong> 7h30 às 11h50</p>
+                    <p><strong>Tarde:</strong> 13h às 17h20</p>
+                    <p><strong>Noite:</strong> 19h às 22h30</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Colégio Barbosa Ferraz. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Colégio Estadual Barbosa Ferraz - SEED-PR</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.querySelector('.hamburger');
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
     </script>
