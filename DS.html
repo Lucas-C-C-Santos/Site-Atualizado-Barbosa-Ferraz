@@ -3,197 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Técnico em Desenvolvimento de Sistemas - Colégio Barbosa</title>
+    <title>Desenvolvimento de Sistemas - Colégio Estadual Barbosa Ferraz</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Desenvolvimento - Design Tech Futurista */
+        :root {
+            --tech-primary: #0052cc;
+            --tech-secondary: #0066ff;
+            --tech-accent: #2684ff;
+            --tech-electric: #00d4ff;
+            --tech-dark: #001a33;
+            --tech-gradient: linear-gradient(135deg, #0052cc 0%, #0066ff 50%, #2684ff 100%);
+            --tech-glow: 0 0 20px rgba(0, 82, 204, 0.3);
+        }
+
+        body.desenvolvimento-page {
+            background: radial-gradient(circle at 20% 80%, rgba(0, 82, 204, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(38, 132, 255, 0.1) 0%, transparent 50%),
+                        #f8fbff;
+        }
+
+        .tech-header {
+            background: var(--tech-gradient);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Crect x='11' y='11' width='10' height='10'/%3E%3Crect x='39' y='39' width='10' height='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .tech-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: var(--tech-glow);
+        }
+
+        .tech-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--tech-gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--tech-glow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.4);
+        }
+
+        .modules-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 82, 204, 0.1);
+            border: 1px solid rgba(0, 82, 204, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .module-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--tech-gradient);
+        }
+
+        .module-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.2);
+        }
+
+        .module-item h4 {
+            color: var(--tech-primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .module-item h4::before {
+            content: "⚡";
+            font-size: 1.2rem;
+        }
+
+        .career-section {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.1);
+        }
+
+        .career-section h3 {
+            text-align: center;
+            color: var(--tech-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .career-card {
+            background: linear-gradient(135deg, var(--tech-primary) 0%, var(--tech-secondary) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .career-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .career-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 82, 204, 0.3);
+        }
+
+        .career-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .career-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .career-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .tech-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .career-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .tech-stack {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Colégio Barbosa</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="EnsM.html">Ensino Médio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Cursos Técnicos</a>
-                        <div class="dropdown-content">
-                            <a href="DS.html" class="active">Desenvolvimento de Sistemas</a>
-                            <a href="FD.html">Formação de Docentes</a>
-                            <a href="TE.html">Técnico em Estética</a>
-                            <a href="TEn.html">Técnico em Enfermagem</a>
-                            <a href="TA.html">Técnico em Administração</a>
-                        </div>
-                    </li>
-                    <li><a href="Proj.html">Projetos</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+<body class="desenvolvimento-page">
+    <nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"><img src="Logo_60_sem_fundo.png" alt="logo"></i>
             </div>
-        </nav>
+            <span>CE Barbosa Ferraz</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html#inicio" class="nav-link">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                    Cursos
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="EnsM.html" class="dropdown-item">
+                        <i class="fas fa-book"></i>
+                        <span>Ensino Médio</span>
+                    </a>
+                    <a href="DS.html" class="dropdown-item">
+                        <i class="fas fa-code"></i>
+                        <span>Desenvolvimento de Sistemas</span>
+                    </a>
+                    <a href="FD.html" class="dropdown-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Formação de Docentes</span>
+                    </a>
+                    <a href="TE.html" class="dropdown-item">
+                        <i class="fas fa-spa"></i>
+                        <span>Técnico em Estética</span>
+                    </a>
+                    <a href="TEn.html" class="dropdown-item">
+                        <i class="fas fa-user-nurse"></i>
+                        <span>Técnico em Enfermagem</span>
+                    </a>
+                    <a href="TA.html" class="dropdown-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Técnico em Administração</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="Proj.html" class="nav-link">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#contato" class="nav-link">Contato</a>
+            </li>
+        </ul>
+
+        <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+
+    <header class="page-header tech-header">
+        <div class="container">
+            <h1>Desenvolvimento de Sistemas</h1>
+            <p>Formando os programadores e desenvolvedores do futuro com tecnologia de ponta</p>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header tech-header">
-            <div class="container">
-                <h1>💻 Técnico em Desenvolvimento de Sistemas</h1>
-                <p>Forme-se programador e entre no mercado de tecnologia</p>
-            </div>
-        </section>
-
-        <section class="course-details">
-            <div class="container">
-                <div class="course-info">
-                    <div class="info-card">
-                        <h2>🚀 Sobre o Curso</h2>
-                        <p>O curso Técnico em Desenvolvimento de Sistemas forma profissionais capazes de criar, testar e manter sistemas computacionais. Com foco prático e metodologia hands-on, nossos alunos saem preparados para o mercado de trabalho.</p>
-                        
-                        <h3>O que você vai aprender:</h3>
-                        <ul>
-                            <li>✅ Lógica de Programação</li>
-                            <li>✅ Linguagens: Python, Java, JavaScript, C#</li>
-                            <li>✅ Desenvolvimento Web (HTML, CSS, React)</li>
-                            <li>✅ Banco de Dados (MySQL, PostgreSQL)</li>
-                            <li>✅ Desenvolvimento Mobile</li>
-                            <li>✅ Metodologias Ágeis</li>
-                            <li>✅ Versionamento com Git</li>
-                        </ul>
+    <section class="course-details">
+        <div class="container">
+            <div class="course-info">
+                <div class="info-card animate-on-scroll">
+                    <h2>Sobre o Curso</h2>
+                    <p>O curso Técnico em Desenvolvimento de Sistemas prepara profissionais para atuar no mercado de tecnologia, desenvolvendo aplicações web, mobile e desktop com as mais modernas tecnologias do mercado.</p>
+                    
+                    <h3>Tecnologias Abordadas</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item">HTML</div>
+                        <div class="tech-item">CSS</div>
+                        <div class="tech-item">JavaScript</div>
+                        <div class="tech-item">React</div>
+                        <div class="tech-item">Node.js</div>
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">Java</div>
+                        <div class="tech-item">MySQL</div>
+                        <div class="tech-item">Git</div>
+                        <img src="img/DS.jpg" alt="DS" class="IMG-DS">
+                        <img src="img/DS2.jpg" alt="DS" class="IMG-DS">
                     </div>
+                </div>
 
-                    <div class="info-card">
-                        <h2>📚 Grade Curricular</h2>
-                        <div class="curriculum-timeline">
-                            <div class="year">
-                                <h4>1º Ano</h4>
-                                <ul>
-                                    <li>Fundamentos de Informática</li>
-                                    <li>Lógica de Programação</li>
-                                    <li>Algoritmos e Estruturas de Dados</li>
-                                    <li>HTML e CSS</li>
-                                    <li>Introdução ao JavaScript</li>
-                                    <li>Banco de Dados I</li>
-                                </ul>
-                            </div>
-                            <div class="year">
-                                <h4>2º Ano</h4>
-                                <ul>
-                                    <li>Programação Orientada a Objetos</li>
-                                    <li>Java Fundamentals</li>
-                                    <li>Desenvolvimento Web Avançado</li>
-                                    <li>React.js</li>
-                                    <li>Banco de Dados II</li>
-                                    <li>Análise de Sistemas</li>
-                                </ul>
-                            </div>
-                            <div class="year">
-                                <h4>3º Ano</h4>
-                                <ul>
-                                    <li>Desenvolvimento Mobile</li>
-                                    <li>Python para Web</li>
-                                    <li>DevOps e Cloud</li>
-                                    <li>Projeto Integrador</li>
-                                    <li>Estágio Supervisionado</li>
-                                    <li>Empreendedorismo Digital</li>
-                                </ul>
-                            </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Módulos do Curso</h3>
+                    <div class="modules-list">
+                        <div class="module-item">
+                            <h4>Fundamentos</h4>
+                            <ul>
+                                <li>Lógica de Programação</li>
+                                <li>Algoritmos e Estruturas de Dados</li>
+                                <li>Banco de Dados</li>
+                                <li>Sistemas Operacionais</li>
+                            </ul>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>🏢 Mercado de Trabalho</h2>
-                        <div class="market-info">
-                            <div class="market-stat">
-                                <h4>Áreas de Atuação:</h4>
-                                <ul>
-                                    <li>Desenvolvedor Full Stack</li>
-                                    <li>Desenvolvedor Front-end</li>
-                                    <li>Desenvolvedor Back-end</li>
-                                    <li>Desenvolvedor Mobile</li>
-                                    <li>Analista de Sistemas</li>
-                                    <li>DevOps Engineer</li>
-                                </ul>
-                            </div>
-                            <div class="market-stat">
-                                <h4>Salário Médio:</h4>
-                                <p><strong>Júnior:</strong> R$ 2.500 - R$ 4.000</p>
-                                <p><strong>Pleno:</strong> R$ 4.000 - R$ 7.000</p>
-                                <p><strong>Sênior:</strong> R$ 7.000 - R$ 15.000+</p>
-                            </div>
+                        <div class="module-item">
+                            <h4>Desenvolvimento Web</h4>
+                            <ul>
+                                <li>HTML, CSS e JavaScript</li>
+                                <li>Frameworks Frontend</li>
+                                <li>APIs e Web Services</li>
+                                <li>Desenvolvimento Backend</li>
+                            </ul>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>🛠️ Laboratórios e Recursos</h2>
-                        <div class="resources-grid">
-                            <div class="resource">
-                                <h4>💻 Lab de Programação</h4>
-                                <p>40 computadores com configuração para desenvolvimento</p>
-                            </div>
-                            <div class="resource">
-                                <h4>☁️ Acesso à Cloud</h4>
-                                <p>AWS, Azure e Google Cloud para projetos</p>
-                            </div>
-                            <div class="resource">
-                                <h4>📱 Lab Mobile</h4>
-                                <p>Dispositivos Android e iOS para testes</p>
-                            </div>
-                            <div class="resource">
-                                <h4>🤝 Parcerias</h4>
-                                <p>Convênios com empresas de tecnologia</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>⏰ Informações do Curso</h2>
-                        <div class="general-info">
-                            <p><strong>Duração:</strong> 3 anos (6 semestres)</p>
-                            <p><strong>Período:</strong> Noturno (19h às 22h40)</p>
-                            <p><strong>Modalidade:</strong> Presencial</p>
-                            <p><strong>Vagas:</strong> 40 por turma</p>
-                            <p><strong>Pré-requisito:</strong> Ensino Médio completo</p>
+                        <div class="module-item">
+                            <h4>Projetos Avançados</h4>
+                            <ul>
+                                <li>Desenvolvimento Mobile</li>
+                                <li>DevOps e Deploy</li>
+                                <li>Projeto Integrador</li>
+                                <li>Estágio Supervisionado</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
+            <div class="career-section animate-on-scroll">
+                <h3>Oportunidades de Carreira</h3>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <div class="career-icon">💻</div>
+                        <h4>Desenvolvedor Full Stack</h4>
+                        <p>Desenvolvimento completo de aplicações web modernas</p>
+                    </div>
+                    <div class="career-card">
+                        <div class="career-icon">📱</div>
+                        <h4>Desenvolvedor Mobile</h4>
+                        <p>Criação de aplicativos para Android e iOS</p>
+                    </div>
+                    <div class="career-card">
+                        <div class="career-icon">🗄️</div>
+                        <h4>Analista de Sistemas</h4>
+                        <p>Análise e modelagem de sistemas complexos</p>
+                    </div>
+                    <div class="career-card">
+                        <div class="career-icon">☁️</div>
+                        <h4>DevOps Engineer</h4>
+                        <p>Automação e infraestrutura em nuvem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Colégio Barbosa</h3>
-                    <p>Educação de qualidade há mais de 50 anos</p>
+                    <h3>Colégio Estadual Barbosa Ferraz</h3>
+                    <p>60+ anos de tradição em educação pública de qualidade no coração do Vale do Ivaí.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>📞 (43) 99611-3582</p>
-                    <p>📧 ivpbarbosa@gmail.com</p>
-                    <p>📍 R. Rio Grande do Sul, 1200 - Ivaiporã, PR, 86870-000</p>
+                    <p><i class="fas fa-phone"></i>(43) 99611-3582</p>
+                    <p><i class="fas fa-envelope"></i> ivpbarbosa@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Rio Grande do Sul, 1200</p>
+                    <p>Centro - Ivaiporã/PR - CEP: 86870-000</p>
+                    <a href="https://www.instagram.com/colegiobarbosaferrazivp/">
+                        <img src="img/Instagram_logo_2022.png" width="10%" alt="Nosso Instagram" >
+                    </a>
+                    <a href="https://www.google.com/maps/place/Col%C3%A9gio+Estadual+Barbosa+Ferraz/@-24.2480054,-51.6754682,19z/data=!4m6!3m5!1s0x94ec15f24bc28389:0xe17147f9468d9720!8m2!3d-24.2481566!4d-51.6752437!16s%2Fg%2F11cr_0_pq5?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="img/map.png" width="10%" alt="Localização do Colégio Barbosa" >
+                    </a>
                 </div>
                 <div class="footer-section">
-                    <h3>Horário de Funcionamento</h3>
-                    <p>Segunda a Sexta: 7h às 22h</p>
+                    <h3>Horários</h3>
+                    <p><strong>Manhã:</strong> 6h50 às 11h50</p>
                     
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Colégio Barbosa Ferraz. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Colégio Estadual Barbosa Ferraz - SEED-PR</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.querySelector('.hamburger');
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
     </script>
