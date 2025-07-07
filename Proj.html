@@ -3,262 +3,561 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos - Colégio Barbosa</title>
+    <title>Projetos - Colégio Estadual Barbosa Ferraz</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Projetos - Design Criativo e Dinâmico */
+        :root {
+            --project-primary: #1e3a8a;
+            --project-secondary: #2563eb;
+            --project-accent: #3b82f6;
+            --project-light: #dbeafe;
+            --project-creative: #8b5cf6;
+            --project-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+            --project-creative-gradient: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        body.projetos-page {
+            background: radial-gradient(circle at 25% 75%, rgba(30, 58, 138, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        #fafbff;
+        }
+
+        .projects-header {
+            background: var(--project-gradient);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M60 10 L80 40 L110 40 L88 62 L98 92 L60 74 L22 92 L32 62 L10 40 L40 40 Z'/%3E%3Cpath d='M60 30 L70 50 L90 50 L76 62 L82 82 L60 70 L38 82 L44 62 L30 50 L50 50 Z'/%3E%3C/g%3E%3C/svg%3E");
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(1.05); }
+        }
+
+        .projects-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .projects-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-showcase {
+            padding: 6rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        
+
+        .project-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--project-light);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.2);
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+            background: var(--project-gradient);
+            color: white;
+        }
+
+        .project-image {
+            height: 280px;
+            background: var(--project-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--project-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card.featured .project-image {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .project-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            transform: translateX(100%);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--project-primary);
+        }
+
+        .project-card.featured .project-content h3 {
+            color: white;
+        }
+
+        .project-content p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card.featured .project-content p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--project-light);
+            color: var(--project-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-card.featured .tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .project-stats {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.1);
+        }
+
+        .project-stats h2 {
+            text-align: center;
+            color: var(--project-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: var(--project-gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .project-timeline {
+            background: var(--project-creative-gradient);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            color: white;
+        }
+
+        .project-timeline h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-date {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 0 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .projects-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .project-stats,
+            .project-timeline {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .timeline::before {
+                left: 40px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+
+            .timeline-date {
+                width: 60px;
+                height: 60px;
+                font-size: 0.9rem;
+            }
+
+            .timeline-content {
+                margin-left: 1rem;
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Colégio Barbosa</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="EnsM.html">Ensino Médio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Cursos Técnicos</a>
-                        <div class="dropdown-content">
-                            <a href="DS.html">Desenvolvimento de Sistemas</a>
-                            <a href="FD.html">Formação de Docentes</a>
-                            <a href="TE.html">Técnico em Estética</a>
-                            <a href="TEn.html">Técnico em Enfermagem</a>
-                            <a href="TA.html">Técnico em Administração</a>
-                        </div>
-                    </li>
-                    <li><a href="Proj.html" class="active">Projetos</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+<body class="projetos-page">
+   <nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"><img src="Logo_60_sem_fundo.png" alt="logo"></i>
             </div>
-        </nav>
+            <span>CE Barbosa Ferraz</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html#inicio" class="nav-link">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                    Cursos
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="EnsM.html" class="dropdown-item">
+                        <i class="fas fa-book"></i>
+                        <span>Ensino Médio</span>
+                    </a>
+                    <a href="DS.html" class="dropdown-item">
+                        <i class="fas fa-code"></i>
+                        <span>Desenvolvimento de Sistemas</span>
+                    </a>
+                    <a href="FD.html" class="dropdown-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Formação de Docentes</span>
+                    </a>
+                    <a href="TE.html" class="dropdown-item">
+                        <i class="fas fa-spa"></i>
+                        <span>Técnico em Estética</span>
+                    </a>
+                    <a href="TEn.html" class="dropdown-item">
+                        <i class="fas fa-user-nurse"></i>
+                        <span>Técnico em Enfermagem</span>
+                    </a>
+                    <a href="TA.html" class="dropdown-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Técnico em Administração</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="Proj.html" class="nav-link">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#contato" class="nav-link">Contato</a>
+            </li>
+        </ul>
+
+        <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+    <header class="page-header projects-header">
+        <div class="container">
+            <h1>Nossos Projetos</h1>
+            <p>Inovação e criatividade transformando a educação.</p>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header projects-header">
-            <div class="container">
-                <h1>🚀 Projetos do Colégio Barbosa</h1>
-                <p>Inovação, conhecimento e transformação social</p>
-            </div>
-        </section>
-
-        <section class="projects-showcase">
-            <div class="container">
-                <div class="projects-grid">
-                    <div class="project-card featured">
-                        <div class="project-image">
-                            <h3>💻 TechBarbosa</h3>
-                        </div>
-                        <div class="project-content">
-                            <h4>Incubadora de Tecnologia</h4>
-                            <p>Projeto que desenvolve soluções tecnológicas para problemas da comunidade, envolvendo alunos de Desenvolvimento de Sistemas.</p>
-                            <div class="project-stats">
-                                <span>15 projetos desenvolvidos</span>
-                                <span>3 startups criadas</span>
-                            </div>
+    <section class="projects-showcase">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card featured animate-on-scroll">
+                    <div class="img"><center><img src="img/setec.png" alt="SETEC"></center></div>
+                    <div class="project-content">
+                        <h3>SETEC</h3>
+                        <p>A SETEC, é um evento ocorrido pela participação da direção, dos professores e os alunos do curso técnico de desenvolvimento de sistemas, sendo feito apresentações de trabalho demonstrando o que aprenderam na prática.</p>
+                        <div class="project-tags">
+                            <span class="tag">Tecnologia</span>
+                            <span class="tag">Inovação</span>
+                            <span class="tag">Futuro</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <h3>🏥 Saúde na Escola</h3>
-                        </div>
-                        <div class="project-content">
-                            <h4>Programa de Saúde Preventiva</h4>
-                            <p>Alunos de Enfermagem realizam campanhas de vacinação, medição de pressão e orientações de saúde para a comunidade.</p>
-                            <div class="project-stats">
-                                <span>500+ pessoas atendidas/mês</span>
-                            </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image"><img src="img/projeto_esporte.jpg" alt="Esporte"></div>
+                    <div class="project-content">
+                        <h3>Jogos Escolares</h3>
+                        <p>Com o objetivo de formar interesses pelo esporte, temos os jogos escolares, onde possui modalidades de esportes na qual alunos de instituições diferentes participam de uma série de jogos representando sua própria instituição.</p>
+                        <div class="project-tags">
+                            <span class="tag">Esporte</span>
+                            <span class="tag">Coletividade</span>
+                            <span class="tag">Atividade Física</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <h3>👶 Creche Escola</h3>
-                        </div>
-                        <div class="project-content">
-                            <h4>Laboratório de Práticas Pedagógicas</h4>
-                            <p>Estudantes de Formação de Docentes atuam em nossa creche escola, aplicando metodologias inovadoras.</p>
-                            <div class="project-stats">
-                                <span>80 crianças atendidas</span>
-                            </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image"><img src="img/projeto_festa_junina.jpg" alt="Arraia"></div>
+                    <div class="project-content">
+                        <h3>Arraia</h3>
+                        <p>Um evento importante no colégio barbosa, uma data festiva como forma e motivo de alegria, com comidas de qualidade, muita dança e música à vontade.</p>
+                        <div class="project-tags">
+                            <span class="tag">Dança</span>
+                            <span class="tag">Cultura</span>
+                            <span class="tag">Festividade</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <h3>✨ Beleza Solidária</h3>
-                        </div>
-                        <div class="project-content">
-                            <h4>Estética Social</h4>
-                            <p>Alunos de Estética oferecem tratamentos gratuitos para pessoas em situação de vulnerabilidade social.</p>
-                            <div class="project-stats">
-                                <span>200+ atendimentos/mês</span>
-                            </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image"><img src="img/projeto_formatura.jpg" alt="Formatura"></div>
+                    <div class="project-content">
+                        <h3>Formatura</h3>
+                        <p>Um dos eventos para marcar seus estudos, a formatura e feita e discutida com os formandos, um dia de muita alegria e comemoração pelo termino dessa fase e a vinda e um novo ciclo.</p>
+                        <div class="project-tags">
+                            <span class="tag">Festividade</span>
+                            <span class="tag">Colação</span>
+                            <span class="tag">Jantar</span>
                         </div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <h3>💼 Empresa Júnior</h3>
-                        </div>
-                        <div class="project-content">
-                            <h4>Consultoria Empresarial</h4>
-                            <p>Estudantes de Administração prestam consultoria para micro e pequenas empresas da região.</p>
-                            <div class="project-stats">
-                                <span>25 empresas assessoradas</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <h3>🌱 EcoBarbosa</h3>
-                        </div>
-                        <div class="project-content">
-                            <h4>Sustentabilidade Ambiental</h4>
-                            <p>Projeto interdisciplinar de educação ambiental com horta orgânica, reciclagem e energia renovável.</p>
-                            <div class="project-stats">
-                                <span>100% energia solar</span>
-                            </div>
+                </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="project-categories">
-            <div class="container">
-                <h2>Categorias de Projetos</h2>
-                <div class="categories-grid">
-                    <div class="category">
-                        <h3>🔬 Pesquisa e Inovação</h3>
-                        <ul>
-                            <li>Iniciação Científica</li>
-                            <li>Feira de Ciências</li>
-                            <li>Olimpíadas Acadêmicas</li>
-                            <li>Projetos de Extensão</li>
-                        </ul>
-                    </div>
-                    <div class="category">
-                        <h3>🤝 Responsabilidade Social</h3>
-                        <ul>
-                            <li>Ações Comunitárias</li>
-                            <li>Voluntariado</li>
-                            <li>Campanhas Solidárias</li>
-                            <li>Inclusão Social</li>
-                        </ul>
-                    </div>
-                    <div class="category">
-                        <h3>🎭 Arte e Cultura</h3>
-                        <ul>
-                            <li>Teatro Estudantil</li>
-                            <li>Coral e Banda</li>
-                            <li>Festival de Talentos</li>
-                            <li>Exposições de Arte</li>
-                        </ul>
-                    </div>
-                    <div class="category">
-                        <h3>⚽ Esporte e Saúde</h3>
-                        <ul>
-                            <li>Jogos Interclasses</li>
-                            <li>Campeonatos Regionais</li>
-                            <li>Projeto Vida Saudável</li>
-                            <li>Dança e Movimento</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="project-results">
-            <div class="container">
-                <h2>Resultados e Conquistas</h2>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-number">50+</div>
-                        <div class="result-text">Projetos Ativos</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-number">1000+</div>
-                        <div class="result-text">Pessoas Beneficiadas</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-number">15</div>
-                        <div class="result-text">Prêmios Recebidos</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-number">80%</div>
-                        <div class="result-text">Alunos Participantes</div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="project-participation">
-            <div class="container">
-                <h2>Como Participar</h2>
-                <div class="participation-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Inscreva-se</h3>
-                        <p>Procure a coordenação do seu curso ou o setor de projetos</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Escolha seu Projeto</h3>
-                        <p>Selecione projetos alinhados com seus interesses e curso</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Participe Ativamente</h3>
-                        <p>Contribua com suas habilidades e aprenda na prática</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Desenvolva-se</h3>
-                        <p>Ganhe experiência, networking e certificações</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Colégio Barbosa</h3>
-                    <p>Educação de qualidade há mais de 50 anos</p>
+                    <h3>Colégio Estadual Barbosa Ferraz</h3>
+                    <p>60+ anos de tradição em educação pública de qualidade no coração do Vale do Ivaí.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>📞 (43) 99611-3582</p>
-                    <p>📧 ivpbarbosa@gmail.com</p>
-                    <p>📍 R. Rio Grande do Sul, 1200 - Ivaiporã, PR, 86870-000</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Horário de Funcionamento</h3>
-                    <p>Segunda a Sexta: 7h às 22h</p>
-                    <p>Sábado: 8h às 12h</p>
+                    <p><i class="fas fa-phone"></i>(43) 99611-3582</p>
+                    <p><i class="fas fa-envelope"></i> ivpbarbosa@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Rio Grande do Sul, 1200</p>
+                    <p>Centro - Ivaiporã/PR - CEP: 86870-000</p>
+                    <a href="https://www.instagram.com/colegiobarbosaferrazivp/">
+                        <img src="img/Instagram_logo_2022.png" width="10%" alt="Nosso Instagram" >
+                    </a>
+                    <a href="https://www.google.com/maps/place/Col%C3%A9gio+Estadual+Barbosa+Ferraz/@-24.2480054,-51.6754682,19z/data=!4m6!3m5!1s0x94ec15f24bc28389:0xe17147f9468d9720!8m2!3d-24.2481566!4d-51.6752437!16s%2Fg%2F11cr_0_pq5?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="img/map.png" width="10%" alt="Localização do Colégio Barbosa" >
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Colégio Barbosa Ferraz. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Colégio Estadual Barbosa Ferraz - SEED-PR</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.querySelector('.hamburger');
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+        if (window.innerWidth > 768) {
+            dropdown.addEventListener('mouseenter', () => {
+                dropdown.classList.add('active');
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                dropdown.classList.remove('active');
+            });
+        } else {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
