@@ -3,228 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formação de Docentes - Colégio Barbosa</title>
+    <title>Formação de Docentes - Colégio Estadual Barbosa Ferraz</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Formação de Docentes - Design Educacional Inspirador */
+        :root {
+            --edu-primary: #1565c0;
+            --edu-secondary: #1976d2;
+            --edu-accent: #42a5f5;
+            --edu-light: #e3f2fd;
+            --edu-warm: #ffb74d;
+            --edu-gradient: linear-gradient(135deg, #1565c0 0%, #1976d2 50%, #42a5f5 100%);
+            --edu-warm-gradient: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+        }
+
+        body.formacao-page {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        }
+
+        .education-header {
+            background: var(--edu-gradient);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .education-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .education-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .methodology-section {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: 0 20px 60px rgba(21, 101, 192, 0.1);
+            position: relative;
+        }
+
+        .methodology-section::before {
+            content: "🎓";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: var(--edu-warm-gradient);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255, 183, 77, 0.3);
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .methodology-card {
+            background: var(--edu-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border-left: 5px solid var(--edu-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .methodology-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--edu-gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .methodology-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .methodology-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(21, 101, 192, 0.2);
+        }
+
+        .methodology-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .methodology-icon {
+            font-size: 2.5rem;
+            color: var(--edu-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .methodology-card h4 {
+            color: var(--edu-primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .methodology-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .subject-area {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(21, 101, 192, 0.1);
+            border-top: 4px solid var(--edu-primary);
+            transition: all 0.3s ease;
+        }
+
+        .subject-area:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(21, 101, 192, 0.15);
+        }
+
+        .subject-area h4 {
+            color: var(--edu-primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subject-area h4::before {
+            content: "📚";
+            font-size: 1.2rem;
+        }
+
+        .subject-area ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .subject-area li {
+            padding: 0.75rem 0;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--edu-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subject-area li::before {
+            content: "✓";
+            color: var(--edu-primary);
+            font-weight: bold;
+        }
+
+        .subject-area li:last-child {
+            border-bottom: none;
+        }
+
+        .teaching-areas {
+            background: var(--edu-gradient);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            color: white;
+        }
+
+        .teaching-areas h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .area-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .area-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .area-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .area-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .area-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .education-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .methodology-section,
+            .teaching-areas {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Colégio Barbosa</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="EnsM.html">Ensino Médio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Cursos Técnicos</a>
-                        <div class="dropdown-content">
-                            <a href="DS.html">Desenvolvimento de Sistemas</a>
-                            <a href="FD.html" class="active">Formação de Docentes</a>
-                            <a href="TE.html">Técnico em Estética</a>
-                            <a href="TEn.html">Técnico em Enfermagem</a>
-                            <a href="TA.html">Técnico em Administração</a>
-                        </div>
-                    </li>
-                    <li><a href="Proj.html">Projetos</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+<body class="formacao-page">
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"><img src="Logo_60_sem_fundo.png" alt="logo"></i>
             </div>
-        </nav>
+            <span>CE Barbosa Ferraz</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html#inicio" class="nav-link">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                    Cursos
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="EnsM.html" class="dropdown-item">
+                        <i class="fas fa-book"></i>
+                        <span>Ensino Médio</span>
+                    </a>
+                    <a href="DS.html" class="dropdown-item">
+                        <i class="fas fa-code"></i>
+                        <span>Desenvolvimento de Sistemas</span>
+                    </a>
+                    <a href="FD.html" class="dropdown-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Formação de Docentes</span>
+                    </a>
+                    <a href="TE.html" class="dropdown-item">
+                        <i class="fas fa-spa"></i>
+                        <span>Técnico em Estética</span>
+                    </a>
+                    <a href="TEn.html" class="dropdown-item">
+                        <i class="fas fa-user-nurse"></i>
+                        <span>Técnico em Enfermagem</span>
+                    </a>
+                    <a href="TA.html" class="dropdown-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Técnico em Administração</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="Proj.html" class="nav-link">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#contato" class="nav-link">Contato</a>
+            </li>
+        </ul>
+
+        <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+    <header class="page-header education-header">
+        <div class="container">
+            <h1>Formação de Docentes</h1>
+            <p>Preparando os educadores que transformarão o futuro da educação</p>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header education-header">
-            <div class="container">
-                <h1>👩‍🏫 Formação de Docentes</h1>
-                <p>Prepare-se para transformar vidas através da educação</p>
-            </div>
-        </section>
+    <section class="course-details">
+        <div class="container">
+            <div class="course-info">
+                <div class="info-card animate-on-scroll">
+                    <h2>Sobre o Curso</h2>
+                    <p>O curso de Formação de Docentes prepara profissionais qualificados para atuar na educação infantil e nos anos iniciais do ensino fundamental, com foco em metodologias inovadoras e práticas pedagógicas modernas.</p>
+                    <img src="img/formacao1.jpg" alt="formação 1">
+                    <img src="img/formacao2.jpg" alt="formação 2">
+                    <img src="img/formacao3.jpg" alt="formação 3">
+                </div>
 
-        <section class="course-details">
-            <div class="container">
-                <div class="course-info">
-                    <div class="info-card">
-                        <h2>📖 Sobre o Curso</h2>
-                        <p>O curso de Formação de Docentes prepara profissionais para atuar na Educação Infantil e nos anos iniciais do Ensino Fundamental. Com base teórica sólida e muita prática pedagógica, formamos educadores comprometidos com a transformação social.</p>
-                        
-                        <h3>Competências Desenvolvidas:</h3>
-                        <ul>
-                            <li>✅ Metodologias de ensino inovadoras</li>
-                            <li>✅ Psicologia do desenvolvimento infantil</li>
-                            <li>✅ Planejamento pedagógico</li>
-                            <li>✅ Avaliação educacional</li>
-                            <li>✅ Inclusão e diversidade</li>
-                            <li>✅ Tecnologias educacionais</li>
-                            <li>✅ Gestão de sala de aula</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>📚 Estrutura Curricular</h2>
-                        <div class="curriculum-areas">
-                            <div class="area">
-                                <h4>🧠 Fundamentos da Educação</h4>
-                                <ul>
-                                    <li>História da Educação</li>
-                                    <li>Filosofia da Educação</li>
-                                    <li>Sociologia da Educação</li>
-                                    <li>Psicologia da Educação</li>
-                                    <li>Políticas Educacionais</li>
-                                </ul>
-                            </div>
-                            <div class="area">
-                                <h4>🎯 Metodologias de Ensino</h4>
-                                <ul>
-                                    <li>Alfabetização e Letramento</li>
-                                    <li>Matemática nos Anos Iniciais</li>
-                                    <li>Ciências Naturais</li>
-                                    <li>História e Geografia</li>
-                                    <li>Arte e Educação Física</li>
-                                </ul>
-                            </div>
-                            <div class="area">
-                                <h4>👶 Educação Infantil</h4>
-                                <ul>
-                                    <li>Desenvolvimento Infantil</li>
-                                    <li>Cuidar e Educar</li>
-                                    <li>Jogos e Brincadeiras</li>
-                                    <li>Literatura Infantil</li>
-                                    <li>Organização do Espaço</li>
-                                </ul>
-                            </div>
-                            <div class="area">
-                                <h4>🏫 Prática Pedagógica</h4>
-                                <ul>
-                                    <li>Estágio Supervisionado I</li>
-                                    <li>Estágio Supervisionado II</li>
-                                    <li>Estágio Supervisionado III</li>
-                                    <li>Projeto de Intervenção</li>
-                                    <li>Trabalho de Conclusão</li>
-                                </ul>
-                            </div>
+                <div class="methodology-section animate-on-scroll">
+                    <h3 style="text-align: center; color: var(--edu-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem;">Metodologias Inovadoras</h3>
+                    <div class="methodology-grid">
+                        <div class="methodology-card">
+                            <div class="methodology-icon">🎯</div>
+                            <h4>Pedagogia Ativa</h4>
+                            <p>Metodologias participativas que colocam o aluno no centro do aprendizado</p>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>🎓 Estágios e Práticas</h2>
-                        <div class="practice-info">
-                            <div class="practice-item">
-                                <h4>🏫 Escolas Parceiras</h4>
-                                <p>Convênios com escolas municipais e estaduais para estágios supervisionados</p>
-                            </div>
-                            <div class="practice-item">
-                                <h4>👥 Acompanhamento</h4>
-                                <p>Supervisão pedagógica durante todo o período de estágio</p>
-                            </div>
-                            <div class="practice-item">
-                                <h4>📋 Carga Horária</h4>
-                                <p>800 horas de estágio obrigatório distribuídas ao longo do curso</p>
-                            </div>
-                            <div class="practice-item">
-                                <h4>🎯 Projetos</h4>
-                                <p>Desenvolvimento de projetos pedagógicos inovadores</p>
-                            </div>
+                        <div class="methodology-card">
+                            <div class="methodology-icon">🧠</div>
+                            <h4>Neurociência</h4>
+                            <p>Aplicação dos conhecimentos sobre o cérebro na educação</p>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>💼 Áreas de Atuação</h2>
-                        <div class="career-paths">
-                            <div class="path">
-                                <h4>🏫 Educação Formal</h4>
-                                <ul>
-                                    <li>Professor de Educação Infantil</li>
-                                    <li>Professor dos Anos Iniciais</li>
-                                    <li>Coordenador Pedagógico</li>
-                                    <li>Diretor Escolar</li>
-                                </ul>
-                            </div>
-                            <div class="path">
-                                <h4>🎨 Educação Não-Formal</h4>
-                                <ul>
-                                    <li>ONGs e Projetos Sociais</li>
-                                    <li>Espaços Culturais</li>
-                                    <li>Brinquedotecas</li>
-                                    <li>Editoras Educacionais</li>
-                                </ul>
-                            </div>
+                        <div class="methodology-card">
+                            <div class="methodology-icon">💻</div>
+                            <h4>Tecnologia Educacional</h4>
+                            <p>Integração de ferramentas digitais no processo educativo</p>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>🏆 Diferenciais do Curso</h2>
-                        <div class="differentials">
-                            <div class="differential">
-                                <h4>👩‍🏫 Professores Especialistas</h4>
-                                <p>Corpo docente com mestrado e doutorado em educação</p>
-                            </div>
-                            <div class="differential">
-                                <h4>📚 Biblioteca Pedagógica</h4>
-                                <p>Acervo especializado em educação e literatura infantil</p>
-                            </div>
-                            <div class="differential">
-                                <h4>🎭 Laboratório de Práticas</h4>
-                                <p>Espaço para simulação de aulas e atividades pedagógicas</p>
-                            </div>
-                            <div class="differential">
-                                <h4>💻 Tecnologia Educacional</h4>
-                                <p>Formação em ferramentas digitais para educação</p>
-                            </div>
+                        <div class="methodology-card">
+                            <div class="methodology-icon">🎨</div>
+                            <h4>Arte-Educação</h4>
+                            <p>Desenvolvimento da criatividade através das artes</p>
                         </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h2>⏰ Informações do Curso</h2>
-                        <div class="general-info">
-                            <p><strong>Duração:</strong> 4 anos</p>
-                            <p><strong>Período:</strong> Manhã (7h às 11h40) ou Noite (19h às 22h40)</p>
-                            <p><strong>Modalidade:</strong> Presencial</p>
-                            <p><strong>Vagas:</strong> 35 por turma</p>
-                            <p><strong>Pré-requisito:</strong> Ensino Médio completo</p>
-                            <p><strong>Certificação:</strong> Técnico em Formação de Docentes</p>
+                        <div class="methodology-card">
+                            <div class="methodology-icon">🌍</div>
+                            <h4>Educação Inclusiva</h4>
+                            <p>Práticas para atender a diversidade em sala de aula</p>
+                        </div>
+                        <div class="methodology-card">
+                            <div class="methodology-icon">📚</div>
+                            <h4>Alfabetização</h4>
+                            <p>Métodos modernos de alfabetização e letramento</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
+            <div class="teaching-areas animate-on-scroll">
+                <h3>Áreas de Atuação</h3>
+                <div class="areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">👶</div>
+                        <h4>Educação Infantil</h4>
+                        <p>Creches e pré-escolas para crianças de 0 a 5 anos</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📖</div>
+                        <h4>Anos Iniciais</h4>
+                        <p>1º ao 5º ano do Ensino Fundamental</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🏫</div>
+                        <h4>Coordenação Pedagógica</h4>
+                        <p>Gestão e coordenação de projetos educacionais</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📚</div>
+                        <h4>Educação Especial</h4>
+                        <p>Atendimento a alunos com necessidades especiais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Colégio Barbosa</h3>
-                    <p>Educação de qualidade há mais de 50 anos</p>
+                    <h3>Colégio Estadual Barbosa Ferraz</h3>
+                    <p>60+ anos de tradição em educação pública de qualidade no coração do Vale do Ivaí.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>📞 (11) 1234-5678</p>
-                    <p>📧 contato@colegiobarbosa.edu.br</p>
-                    <p>📍 Rua da Educação, 123 - São Paulo/SP</p>
+                    <p><i class="fas fa-phone"></i>(43) 99611-3582</p>
+                    <p><i class="fas fa-envelope"></i> ivpbarbosa@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R. Rio Grande do Sul, 1200</p>
+                    <p>Centro - Ivaiporã/PR - CEP: 86870-000</p>
+                    <a href="https://www.instagram.com/colegiobarbosaferrazivp/">
+                        <img src="img/Instagram_logo_2022.png" width="10%" alt="Nosso Instagram" >
+                    </a>
+                    <a href="https://www.google.com/maps/place/Col%C3%A9gio+Estadual+Barbosa+Ferraz/@-24.2480054,-51.6754682,19z/data=!4m6!3m5!1s0x94ec15f24bc28389:0xe17147f9468d9720!8m2!3d-24.2481566!4d-51.6752437!16s%2Fg%2F11cr_0_pq5?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="img/map.png" width="10%" alt="Localização do Colégio Barbosa" >
+                    </a>
                 </div>
                 <div class="footer-section">
-                    <h3>Horário de Funcionamento</h3>
-                    <p>Segunda a Sexta: 7h às 22h</p>
-                    <p>Sábado: 8h às 12h</p>
+                    <h3>Horários</h3>
+                    <p><strong>Manhã:</strong> 6h50 às 11h50</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Colégio Barbosa Ferraz. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Colégio Estadual Barbosa Ferraz - SEED-PR</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.querySelector('.hamburger');
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
     </script>
